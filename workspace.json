@@ -1,9 +1,71 @@
 {
-  
-  
   "version": 2,
-  
-  "projects": {},
+  "projects": {
+    "peachui": {
+      "root": "libs/peachui",
+      "sourceRoot": "libs/peachui/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/peachui/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/peachui"],
+          "options": {
+            "jestConfig": "libs/peachui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/peachui",
+            "tsConfig": "libs/peachui/tsconfig.lib.json",
+            "packageJson": "libs/peachui/package.json",
+            "main": "libs/peachui/src/index.ts",
+            "assets": ["libs/peachui/*.md"]
+          }
+        }
+      }
+    },
+    "bootstrapui": {
+      "root": "libs/bootstrapui",
+      "sourceRoot": "libs/bootstrapui/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/bootstrapui/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/bootstrapui"],
+          "options": {
+            "jestConfig": "libs/bootstrapui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/bootstrapui",
+            "tsConfig": "libs/bootstrapui/tsconfig.lib.json",
+            "packageJson": "libs/bootstrapui/package.json",
+            "main": "libs/bootstrapui/src/index.ts",
+            "assets": ["libs/bootstrapui/*.md"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
   }
