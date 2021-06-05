@@ -1,5 +1,19 @@
 {
   "version": 2,
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {}
+  },
   "projects": {
     "peachui": {
       "root": "libs/peachui",
@@ -9,12 +23,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/peachui/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/peachui/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/peachui"],
+          "outputs": [
+            "coverage/libs/peachui"
+          ],
           "options": {
             "jestConfig": "libs/peachui/jest.config.js",
             "passWithNoTests": true
@@ -22,13 +40,17 @@
         },
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/peachui",
             "tsConfig": "libs/peachui/tsconfig.lib.json",
             "packageJson": "libs/peachui/package.json",
             "main": "libs/peachui/src/index.ts",
-            "assets": ["libs/peachui/*.md"]
+            "assets": [
+              "libs/peachui/*.md"
+            ]
           }
         }
       }
@@ -41,12 +63,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/bootstrapui/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/bootstrapui/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/bootstrapui"],
+          "outputs": [
+            "coverage/libs/bootstrapui"
+          ],
           "options": {
             "jestConfig": "libs/bootstrapui/jest.config.js",
             "passWithNoTests": true
@@ -54,19 +80,92 @@
         },
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/bootstrapui",
             "tsConfig": "libs/bootstrapui/tsconfig.lib.json",
             "packageJson": "libs/bootstrapui/package.json",
             "main": "libs/bootstrapui/src/index.ts",
-            "assets": ["libs/bootstrapui/*.md"]
+            "assets": [
+              "libs/bootstrapui/*.md"
+            ]
+          }
+        }
+      }
+    },
+    "paui": {
+      "projectType": "library",
+      "root": "libs/paui",
+      "sourceRoot": "libs/paui/src",
+      "prefix": "liuyi-ng-ui",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/paui"
+          ],
+          "options": {
+            "jestConfig": "libs/paui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/paui/src/**/*.ts",
+              "libs/paui/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "papaui": {
+      "projectType": "library",
+      "root": "libs/papaui",
+      "sourceRoot": "libs/papaui/src",
+      "prefix": "liuyi-ng-ui",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:package",
+          "outputs": [
+            "dist/libs/papaui"
+          ],
+          "options": {
+            "project": "libs/papaui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/papaui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/papaui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/papaui"
+          ],
+          "options": {
+            "jestConfig": "libs/papaui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/papaui/src/**/*.ts",
+              "libs/papaui/src/**/*.html"
+            ]
           }
         }
       }
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
   }
 }

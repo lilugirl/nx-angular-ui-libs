@@ -16,7 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@liuyi-ng-ui/peachui": ["libs/peachui/src/index.ts"],
-      "@liuyi-ng-ui/bootstrapui": ["libs/bootstrapui/src/index.ts"]
+      "@liuyi-ng-ui/bootstrapui": ["libs/bootstrapui/src/index.ts"],
+      "@liuyi-ng-ui/paui": ["libs/paui/src/index.ts"],
+      "@liuyi-ng-ui/papaui": ["libs/papaui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
